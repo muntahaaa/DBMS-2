@@ -1,0 +1,108 @@
+Branch Table:
+branch_name   | branch_city | assets
+-------------------------------------
+Main Branch   | New York    | 1000000
+Downtown Branch | New York  | 500000
+Uptown Branch | New York    | 750000
+Westside Branch | Los Angeles | 900000
+Eastside Branch | Los Angeles | 600000
+
+Customer Table:
+customer_name | customer_street | customer_city
+-----------------------------------------------
+John Smith    | 123 Main St     | New York
+Alice Johnson | 456 Elm St      | Los Angeles
+Michael Brown | 789 Oak St      | New York
+Emma Davis    | 101 Pine St     | Los Angeles
+Sophia Wilson | 222 Maple St    | New York
+
+Account Table:'
+account_number | branch_name    | balance
+-----------------------------------------
+1001           | Main Branch    | 5000
+1002           | Downtown Branch | 7500
+1003           | Uptown Branch  | 3000
+1004           | Westside Branch | 6000
+1005           | Eastside Branch | 4000
+
+Loan Table:
+loan_number | branch_name    | amount
+--------------------------------------
+2001        | Main Branch    | 10000
+2002        | Downtown Branch | 7500
+2003        | Uptown Branch  | 5000
+2004        | Westside Branch | 12000
+2005        | Eastside Branch | 8000
+
+Depositor Table:
+customer_name | account_number
+------------------------------
+John Smith    | 1001
+John Smith    | 1002
+Alice Johnson | 1003
+Michael Brown | 1004
+Emma Davis    | 1005
+
+Borrower Table:'
+customer_name | loan_number
+-----------------------------
+John Smith    | 2001
+Alice Johnson | 2002
+Michael Brown | 2003
+Emma Davis    | 2004
+Sophia Wilson | 2005
+
+------------------------------------------------------------ER Diagram--------------------------------------------------------------------
+
+
+             +---------------+
+             |    Branch     |
+             +---------------+
+             | branch_name   |
+             | branch_city   |
+             | assets        |
+             +---------------+
+                    |
+                    |
+                    v
+             +---------------+
+             |   Customer    |
+             +---------------+
+             | customer_name |
+             | customer_street |
+             | customer_city |
+             +---------------+
+                    |
+                    |
+                    v
+             +---------------+
+             |    Account    |
+             +---------------+
+             | account_number |
+             | branch_name   |---\
+             | balance       |    \
+             +---------------+     \
+                    |                \
+                    |                 \
+                    |                  \
+                    v                   v
+             +---------------+     +---------------+
+             |    Loan       |     |   Depositor   |
+             +---------------+     +---------------+
+             | loan_number   |     | customer_name|   (relation)
+             | branch_name   |-----| account_number|
+             | amount        |     +---------------+
+             +---------------+     
+                    |
+                    |
+                    v
+             +---------------+
+             |   Borrower    |
+             +---------------+  (relation)
+             | customer_name|
+             | loan_number  |
+             +---------------+
+
+Question:------------------------------------------------------------------------------------------------------------------------------
+Write a query to get all the customer names who have accounts in all the branches located in New York city. 
+For example: John Smith has account in all the branches of NY. 
