@@ -1,0 +1,6 @@
+Undo the transactions: {'T6', 'T4', 'T3'}
+Redo the transactions: {'T2', 'T5'}
+Value of A: 2
+Value of B: 20
+Value of C: 100
+Value of D: 2000
