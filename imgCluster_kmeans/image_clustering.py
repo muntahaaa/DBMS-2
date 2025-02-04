@@ -26,6 +26,9 @@ K = 5
 kmeans = KMeans(K=K, max_iters=100)
 labels = kmeans.predict(pixel_vals)
 
+# Plot the clusters
+kmeans.plot()
+
 # Convert data into 8-bit values
 centers = np.uint8(kmeans.centroids)
 segmented_data = centers[labels.astype(int)]
